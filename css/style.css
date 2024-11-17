@@ -1,0 +1,556 @@
+:root{
+    --color_005025 : #005025;
+    --color-fff:#fff
+}
+body{
+    font-family: poppins-regular;
+}
+.scroll-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #f0f0f0;
+    z-index: 9999;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #ff6f61;
+    /*transition: width 0.1s linear;*/
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.header{
+    z-index: 10;
+    width: 100%;
+    padding-bottom: 18rem;
+    position: relative;
+    background-color: var(--color_005025);
+    border-radius: 0 0 calc(10vw + 2rem) calc(10vw + 2rem); /* شعاع گوشه‌ها به نسبت عرض صفحه */
+}
+.header-top{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 1.6rem 0;
+    z-index: 1000;
+    background-color: var(--color_005025);
+    transition: all 0.3s ease; /* انیمیشن برای انتقال روان */
+}
+.header-top.scrolled {
+    background-color: rgba(0, 0, 0, 0.8); /* تغییر رنگ پس‌زمینه وقتی اسکرول شد */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* اضافه کردن سایه */
+    padding: 1rem 0; /* کاهش ارتفاع */
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.nav__logo-link{
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.nav__logo-image{
+    width: 3.7rem;
+    height: 4rem;
+}
+.nav__logo-title{
+    color: var(--color-fff);
+    font-size: 2.4rem;
+    font-family: poppins-bold;
+}
+.nav__list{
+    display: flex;
+    align-items: center;
+    gap: 6.4rem;
+}
+.nav__item{
+    position: relative;
+
+    cursor: pointer;
+
+}
+.nav__link{
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: block;
+    transition: all .25s ease;
+}
+.nav__link::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-fff);
+    border-radius: 1rem;
+    left: 0;
+    bottom: 0;
+    transform: scale(0);
+    transition: all .25s ease;
+}
+.nav__item:hover:not(.active) .nav__link {
+    color: var(--color-fff); /* تغییر رنگ متن هنگام هاور */
+    transform: translateY(-3px); /* تغییر موقعیت برای احساس حرکت */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* اضافه کردن سایه */
+}
+.nav__item:hover:not(.active) .nav__link::before{
+    transform: scale(1);
+}
+.nav__item.active .nav__link{
+    color: var(--color-fff);
+    font-family: poppins-semi-bold;
+}
+.nav-login{
+  display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.nav-login__link{
+    padding: 9px 12px;
+    border-radius: 8px;
+    color: var(--color-fff);
+    font-family: poppins-medium;
+    font-size: 1.6rem;
+}
+.nav-login__link.active{
+    background-color: var(--color-fff);
+    color: black;
+    font-family: poppins-semi-bold;
+}
+.header-bottom{
+    padding-top: 7rem;
+    display: flex;
+    border-radius: 0 0 calc(10vw + 2rem) calc(10vw + 2rem); /* شعاع گوشه‌ها به نسبت عرض صفحه */
+}
+.header-bottom__wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 2rem;
+}
+.header-bottom__left{
+    width: 60rem;
+    height: 100%;
+    display: flex;align-items: center;
+    justify-content: center;
+}
+.header-bottom__image{
+    width: 100%;
+    position: relative;
+    top: 10rem;
+    object-fit: contain;
+}
+.header-bottom__right{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.header-right__title{
+    font-size: clamp(24px, 5vw, 60px); /* از 24px تا 60px بسته به عرض صفحه */
+    color: #fff;
+    font-family: poppins-bold;
+}
+.header-right__caption{
+    color: #d1b28e; /* رنگ خاکی روشن */
+    margin: 2rem 0;
+    font-size: clamp(14px, 2vw + 1rem, 18px); /* از 14px تا 18px بسته به عرض صفحه */
+
+}
+.header-right__link {
+    position: relative;
+    padding: 0.8rem 1.5rem; /* حاشیه داخلی */
+    color: #fff; /* رنگ فونت سفید */
+    font-size: clamp(14px, 2vw + 1rem, 18px); /* اندازه فونت ریسپانسیو */
+    background-color: #005025; /* رنگ پس‌زمینه سبز تیره */
+    border: 2px solid #fff; /* مرز سفید رنگ */
+    border-radius: 5px; /* گوشه‌های گرد */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* انیمیشن برای تغییرات */
+    z-index: 3;
+}
+.header__bottom-image{
+    position: absolute;
+    right: 0;
+    bottom: -1.6rem;
+    width: 100%;
+   max-width: 60rem;
+    z-index: 2;
+}
+.header__bottom-image img{
+    width: 100%;
+}
+
+/* افکت hover */
+.header-right__link:hover {
+    background-color: #003d1a; /* رنگ پس‌زمینه تیره‌تر هنگام hover */
+    transform: scale(1.05); /* بزرگ‌نمایی کمی هنگام hover */
+    color: #fff; /* اطمینان از این‌که رنگ متن هنگام hover تغییر نمی‌کند */
+}
+.main section{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: green;
+    background-color: gray;
+    height: 40rem;
+    border: 1px solid #ccc;
+    margin-bottom: 3rem;
+}
+.footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    background-color: gray;
+    height: 40rem;
+    border: 1px solid #ccc;
+    margin-bottom: 3rem;
+}
+.nav__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.nav__hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* انیمیشن تغییر */
+}
+/* حالت open: زمانی که منو باز است */
+.nav__hamburger.open .nav__hamburger-line:nth-child(1) {
+    transform: rotate(45deg); /* اولین خط به سمت راست می‌چرخد */
+    position: relative;
+    top: 0.7rem; /* موقعیت بالاتر می‌رود */
+}
+
+.nav__hamburger.open .nav__hamburger-line:nth-child(2) {
+    opacity: 0; /* خط وسط ناپدید می‌شود */
+    transform: translateX(100%); /* خط وسط به سمت راست می‌رود */
+}
+
+.nav__hamburger.open .nav__hamburger-line:nth-child(3) {
+    transform: rotate(-45deg); /* سومین خط به سمت چپ می‌چرخد */
+    position: relative;
+    bottom: 0.5rem; /* موقعیت پایین‌تر می‌رود */
+}
+
+.book-now{
+    background-color: white;
+    padding: 3.2rem 2.4rem;
+    width: 84%;
+    position: absolute;
+    top: 100%;
+    z-index: 10;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 12px;
+}
+.header-form{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-auto-rows: 55px;
+    grid-gap: 2rem;
+    justify-content: space-between;
+}
+.header-form__group{
+    position: relative;
+
+}
+.header-form__group:last-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main{
+    position: relative;
+    z-index: 9;
+}
+.header-form__group .btn{
+    cursor: pointer;
+    padding: 15px 30px;
+    color: white;
+    background: #7D261C;
+    border: none;
+    font-family: poppins-semi-bold;
+    font-size: 16px;
+    border-radius: 7px;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* افزودن transition برای تغییرات رنگ، اندازه و سایه */
+
+}
+.header-form__group .btn:hover {
+    background: #a62a1d; /* رنگ قرمز روشن‌تر برای هاور */
+    /*transform: scale(1.01); !* بزرگ شدن دکمه *!*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* اضافه کردن سایه ظریف هنگام هاور */
+}
+
+.header-form__group .btn:active {
+    background: #601914; /* رنگ قرمز تیره‌تر برای کلیک */
+    transform: scale(0.98); /* کوچک شدن دکمه در هنگام کلیک */
+    box-shadow: none; /* حذف سایه در حالت کلیک */
+}
+/* استایل ورودی */
+.form-input {
+    width: 100%;
+    height: 100%;
+    padding: 10px 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-family: poppins-medium;
+    background: #fff;
+    color: #333;
+}
+
+/* فوکوس روی ورودی */
+.form-input:focus {
+    border-color: #005025; /* رنگ سبز تیره هنگام فوکوس */
+    box-shadow: 0 0 5px rgba(0, 80, 37, 0.5); /* سایه زیبا */
+}
+
+
+
+
+/* استایل دراپ‌داون */
+.dropdown {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 100%;
+    font-family: poppins-medium;
+}
+
+.dropdown-btn:hover,
+.dropdown-btn:focus {
+    border-color: #005025;
+    box-shadow: 0 0 5px rgba(0, 80, 37, 0.5);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0;
+    margin: 5px 0;
+    list-style: none;
+    display: none;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-family: poppins-medium;
+}
+
+
+
+
+/* استایل لیبل */
+.form-label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    pointer-events: none; /* غیرقابل کلیک */
+}
+
+
+.header-form__group.toTop .form-label{
+    top: 0;
+    font-size: 12px;
+    color: #005025;
+    background-color: white;
+}
+
+
+/* استایل برای دراپ‌داون */
+.header-form__group:nth-child(5){
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.header-form__group:nth-child(4){
+    border-radius: 5px;
+}
+.header-form__group:nth-child(5) .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.header-form__group:nth-child(5) .dropdown-btn {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 0;
+
+}
+
+.dropdown-btn:hover,
+.dropdown-btn:focus {
+    border-color: #005025;
+    box-shadow: 0 0 5px rgba(0, 80, 37, 0.5);
+}
+.header-form__group:nth-child(5) .dropdown-btn:hover,
+.header-form__group:nth-child(5) .dropdown-btn:focus {
+    box-shadow: none;
+    color: red;
+}
+
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.header-form__group:nth-child(5) .dropdown-item {
+    padding: 8px 15px;
+    font-size: 12px;
+}
+
+.dropdown-item:hover {
+    background: #005025;
+    color: #fff;
+}
+
+/* استایل برای لیبل */
+.form-label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* تغییر مکان لیبل به بالا */
+.header-form__group:nth-child(3) .form-label, .header-form__group:nth-child(5) .form-label , .header-form__group:nth-child(4) .form-label{
+    top: 0;
+    font-size: 12px;
+    color: #005025;
+    background-color: white;
+}
+.header-form__group:nth-child(5):focus-within {
+    border-color: #005025;
+}
+
+.header-form__group.toTop .form-label {
+    top: 0;
+    font-size: 12px;
+    color: #005025;
+    background-color: white;
+}
+
+
+/* استایل والد */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+/* دکمه‌های افزایش و کاهش */
+.quantity-btn {
+    width: 34px;
+    height: 34px;
+    background: #7D261C;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background: #a62a1d;
+}
+
+.quantity-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* ورودی عددی */
+.quantity-input {
+    width: 60px;
+    height: 34px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.quantity-input:focus {
+    border-color: #005025;
+    box-shadow: 0 0 5px rgba(0, 80, 37, 0.5);
+}
+
+/* لیبل */
+.quantity-selector + .form-label {
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    font-size: 12px;
+    color: #005025;
+}
+
+
+
+
+
+

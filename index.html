@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>project coffee</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<header class="header">
+    <div class="scroll-bar">
+        <div class="progress-bar">
+
+        </div>
+    </div>
+    <div class="header-top">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="nav__logo-link">
+                    <img class="nav__logo-image" src="images/logo.png">
+                    <span class="nav__logo-title">Coffee world</span>
+                </a>
+                <div class="cover"></div>
+                <ul class="nav__list">
+                    <li class="nav__item active">
+                        <span  class="nav__link">Home</span>
+                    </li>
+                    <li class="nav__item">
+                        <span  class="nav__link">About</span>
+                    </li>
+                    <li class="nav__item">
+                        <span  class="nav__link">Service</span>
+                    </li>
+                    <li class="nav__item">
+                        <span  class="nav__link">Contact</span>
+                    </li>
+                </ul>
+                <div class="nav-login">
+                    <a href="#" class="nav-login__link active">sign in</a>
+                    <a href="#" class="nav-login__link">sign up</a>
+                </div>
+                <div class="nav__hamburger" id="hamburger">
+                    <span class="nav__hamburger-line"></span>
+                    <span class="nav__hamburger-line"></span>
+                    <span class="nav__hamburger-line"></span>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <div class="container">
+            <div class="header-bottom__wrapper">
+                <div class="header-bottom__left">
+                    <img class="header-bottom__image" src="images/coffe_1.png">
+                </div>
+                <div class="header-bottom__right">
+                    <h1 class="header-right__title">Morning begins with Ombe coffee</h1>
+                    <p class="header-right__caption">When an unknown printer took a galley of type and scrambled it to make a type specimen book. It </p>
+                    <a href="#" class="header-right__link">See Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__bottom-image">
+        <img src="images/bottom_head.png">
+    </div>
+    <div class="book-now">
+        <form action="" class="header-form">
+            <div class="header-form__group">
+                <input type="text" id="input1" class="form-input" required>
+                <label for="input1" class="form-label">Your Name</label>
+            </div>
+            <div class="header-form__group">
+                <input type="text" id="input2" class="form-input" required>
+                <label for="input2" class="form-label">Your Phone</label>
+            </div>
+            <div class="header-form__group">
+                <div class="dropdown">
+                    <button class="dropdown-btn" type="button">Select a product</button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item" data-value="item1">Item 1</li>
+                        <li class="dropdown-item" data-value="item2">Item 2</li>
+                        <li class="dropdown-item" data-value="item3">Item 3</li>
+                        <li class="dropdown-item" data-value="item4">Item 4</li>
+                        <li class="dropdown-item" data-value="item5">Item 5</li>
+                    </ul>
+                </div>
+                <label for="productDropdown" class="form-label">Product Type</label>
+                <input type="hidden" id="productDropdown" class="form-input" name="productType" required>
+            </div>
+
+            <div class="header-form__group quantity-selector">
+                <button type="button" class="quantity-btn decrement">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="100">
+                <button type="button" class="quantity-btn increment">+</button>
+                <label for="quantity" class="form-label">Attendance</label>
+                <input type="hidden" id="quantity" class="form-input" name="quantity" value="1">
+            </div>
+
+
+
+            <div class="header-form__group">
+                <div class="dropdown">
+                    <button class="dropdown-btn" type="button">AM/PM</button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item" data-value="AM">AM</li>
+                        <li class="dropdown-item" data-value="PM">PM</li>
+                    </ul>
+                </div>
+                <input type="hidden" id="timePeriod" class="form-input" name="timePeriod" required>
+                <div class="dropdown">
+                    <button class="dropdown-btn" type="button">12</button>
+                    <ul class="dropdown-menu">
+                        <!-- ساعت‌ها از 1 تا 12 -->
+                        <li class="dropdown-item" data-value="1">1</li>
+                        <li class="dropdown-item" data-value="2">2</li>
+                        <li class="dropdown-item" data-value="3">3</li>
+                        <li class="dropdown-item" data-value="4">4</li>
+                        <li class="dropdown-item" data-value="5">5</li>
+                        <li class="dropdown-item" data-value="6">6</li>
+                        <li class="dropdown-item" data-value="7">7</li>
+                        <li class="dropdown-item" data-value="8">8</li>
+                        <li class="dropdown-item" data-value="9">9</li>
+                        <li class="dropdown-item" data-value="10">10</li>
+                        <li class="dropdown-item" data-value="11">11</li>
+                        <li class="dropdown-item" data-value="12">12</li>
+                    </ul>
+                </div>
+                <span style="display: flex;align-items: center">:</span>
+                <div class="dropdown">
+                    <button class="dropdown-btn" type="button">00</button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item" data-value="00">00</li>
+                        <li class="dropdown-item" data-value="15">15</li>
+                        <li class="dropdown-item" data-value="30">30</li>
+                        <li class="dropdown-item" data-value="45">45</li>
+                    </ul>
+                </div>
+                <label for="time" class="form-label">Time</label>
+                <input type="hidden" id="time" class="form-input" name="minute" required>
+            </div>
+
+
+
+            <div class="header-form__group">
+                <input type="submit" class="btn" value="Book now">
+            </div>
+        </form>
+    </div>
+</header>
+<main class="main">
+    <section class="main-section">home</section>
+    <section class="main-section">about</section>
+    <section class="main-section">service</section>
+    <section class="main-section">contact</section>
+</main>
+<footer class="footer">
+    footer
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
